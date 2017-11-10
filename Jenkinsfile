@@ -12,7 +12,7 @@ pipeline {
         stage('Artifacts') {
             steps {
                 echo 'Testing..'
-                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+                archiveArtifacts artifacts: '**/target/*.jar'
             }
         }
         stage('Deploy') {
