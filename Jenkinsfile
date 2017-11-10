@@ -6,11 +6,13 @@ pipeline {
             steps {
                 echo 'Building..'
                powershell 'mvn clean'
+               
             }
         }
-        stage('Test') {
+        stage('Artifacts') {
             steps {
                 echo 'Testing..'
+                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
             }
         }
         stage('Deploy') {
